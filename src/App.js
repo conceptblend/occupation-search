@@ -55,12 +55,18 @@ function App() {
   const SearchComponents = (props) => {
     return (
       <>
-        <Header as="h3">Text</Header>
-        <TextSearch key={`${props.keyVal}-text`} source={props.source} />
-        <Header as="h3">Fuse</Header>
-        <FuseSearch key={`${props.keyVal}-fuse`} source={props.source} />
-        <Header as="h3">JS Search</Header>
-        <JsOccSearch key={`${props.keyVal}-js`} source={props.source} />
+        <Segment vertical>
+          <Header as="h3">Text</Header>
+          <TextSearch key={`${props.keyVal}-text`} source={props.source} />
+        </Segment>
+        <Segment vertical>
+          <Header as="h3">Fuse</Header>
+          <FuseSearch key={`${props.keyVal}-fuse`} source={props.source} />
+        </Segment>
+        <Segment vertical>
+          <Header as="h3">JS Search</Header>
+          <JsOccSearch key={`${props.keyVal}-js`} source={props.source} />
+        </Segment>
         { /*
         <Header as="h3">Lunr</Header>
         <LunrSearch key={`${props.keyVal}-lunr`} source={props.source} />
