@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import PropTypes from 'prop-types'
 import { Container, Header, Segment, Tab } from 'semantic-ui-react'
-import FuseSearch from './components/FuseSearch'
-//import LunrSearch from './components/LunrSearch'
-import TextSearch from './components/TextSearch'
-import JsOccSearch from './components/JsOccSearch'
+
 import { data as nocData } from './data/noc-reduced-ext.json'
 import { data as naicsData } from './data/naics-reduced-ext.json'
+
+const FuseSearch = React.lazy(() => import('./components/FuseSearch'));
+const TextSearch = React.lazy(() => import('./components/TextSearch'));
+const JsOccSearch = React.lazy(() => import('./components/JsOccSearch'));
+//const LunrSearch = React.lazy(() => import('./components/LunrSearch'));
+
 
 const extendedOccupations = [
   {
@@ -44,6 +47,7 @@ const nocSource = nocData.concat(extendedOccupations).map((entry, index) => {
     id: index
   }
 });
+
 const naicsSource = naicsData.concat(extendedOccupations).map((entry, index) => {
   return {
     ...entry,
@@ -51,10 +55,11 @@ const naicsSource = naicsData.concat(extendedOccupations).map((entry, index) => 
   }
 });
 
+
 function App() {
   const SearchComponents = (props) => {
     return (
-      <>
+    <Suspense fallback={<div>Loading...</div>}>
         <Segment vertical>
           <Header as="h3">Text</Header>
           <TextSearch key={`${props.keyVal}-text`} source={props.source} />
@@ -71,7 +76,7 @@ function App() {
         <Header as="h3">Lunr</Header>
         <LunrSearch key={`${props.keyVal}-lunr`} source={props.source} />
         */ }
-      </>
+      </Suspense>
     )
   }
   SearchComponents.propTypes = {
