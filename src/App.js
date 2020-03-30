@@ -72,10 +72,12 @@ function App() {
           <Header as="h3">JS Search</Header>
           <JsOccSearch key={`${props.keyVal}-js`} source={props.source} />
         </Segment>
-        { /*
-        <Header as="h3">Lunr</Header>
-        <LunrSearch key={`${props.keyVal}-lunr`} source={props.source} />
-        */ }
+        {/*
+        <Segment vertical>
+          <Header as="h3">Lunr</Header>
+          <LunrSearch key={`${props.keyVal}-lunr`} source={props.source} />
+        </Segment>
+        */}
       </Suspense>
     )
   }

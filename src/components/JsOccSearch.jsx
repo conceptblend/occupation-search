@@ -28,6 +28,7 @@ const JsOccSearch = (props) => {
 
   idxJsSearch.addIndex('nocTitle')
   idxJsSearch.addIndex('combinedExamples')
+  //idxJsSearch.addIndex('examples')
   idxJsSearch.addDocuments(props.source)
 
   const queryFunc = (query) => {
