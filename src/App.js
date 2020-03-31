@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import PropTypes from "prop-types";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Container, Header, Segment, Tab } from "semantic-ui-react";
 
 import { data as nocData } from "./data/noc-reduced-ext.json";
@@ -109,7 +109,7 @@ function App() {
         <Header as="h1">Occupation Explorers</Header>
       </Segment>
       <Segment vertical>
-        <BrowserRouter basename="/occupation-search">
+        <HashRouter>
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route exact path={["/fuse", "/fuse/noc"]}>
@@ -144,7 +144,7 @@ function App() {
               </Route>
             </Switch>
           </Suspense>
-        </BrowserRouter>
+        </HashRouter>
       </Segment>
     </Container>
   );
