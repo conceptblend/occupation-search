@@ -32,11 +32,13 @@ const JsOccSearch = (props) => {
   idxJsSearch.addDocuments(props.source)
 
   const queryFunc = (query) => {
+
     return idxJsSearch.search(query).map(result => {
       return {
         title: result.nocTitle,
         description: result.combinedExamples,
         meta: `Code ${result.nocCode} -- Level ${result.nocLevel}`,
+        'data-matchtype': 'combined',
       }} // Mapping makes the consuming resultRender not dump all the props on the DOM
     )
   }

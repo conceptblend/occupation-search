@@ -4,10 +4,21 @@ import { Search, Form, Card } from "semantic-ui-react";
 import _ from 'lodash'
 
 
-const resultRenderer = ({ title }) => [title && <div key='title'>{title}</div>];
+const resultRenderer = (props) => {
+  const { title, description } = props;
+  const matchType = props['data-matchtype'];
+
+  return [
+    <div key='content'>
+      {title && <div className='title'>{title}</div>}
+      {matchType==='isolated' && description && <div className='description'>{description}</div>}
+    </div>
+  ];
+}
 
 resultRenderer.propTypes = {
   title: PropTypes.string,
+  description: PropTypes.string,
 }
 
 
