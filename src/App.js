@@ -114,27 +114,27 @@ function App() {
             <Switch>
               <Route exact path={["/fuse", "/fuse/noc"]}>
                 <Header as="h3">NOC: Fuse</Header>
-                <FuseSearch key="text" source={nocSource} />
+                <FuseSearch key="fuse-noc" source={nocSource} />
               </Route>
               <Route exact path="/fuse/naics">
                 <Header as="h3">NAICS: Fuse</Header>
-                <FuseSearch key="text" source={naicsSource} />
+                <FuseSearch key="fuse-naics" source={naicsSource} />
               </Route>
               <Route exact path={["/text", "/text/noc"]}>
                 <Header as="h3">NOC: Text</Header>
-                <TextSearch key="text" source={nocSource} />
+                <TextSearch key="text-noc" source={nocSource} />
               </Route>
               <Route exact path="/text/naics">
                 <Header as="h3">NAICS: Text</Header>
-                <TextSearch key="text" source={naicsSource} />
+                <TextSearch key="text-naics" source={naicsSource} />
               </Route>
               <Route exact path={["/js-search", "/js-search/noc"]}>
                 <Header as="h3">NOC: JS Search</Header>
-                <JsOccSearch key="text" source={nocSource} />
+                <JsOccSearch key="js-noc" source={nocSource} />
               </Route>
               <Route exact path="/js-search/naics">
                 <Header as="h3">NAICS: JS Search</Header>
-                <JsOccSearch key="text" source={naicsSource} />
+                <JsOccSearch key="js-naics" source={naicsSource} />
               </Route>
               <Route exact path="/">
                 <Tab defaultActiveIndex={0} menu={{ secondary: true, pointing: true }} panes={panes} />
